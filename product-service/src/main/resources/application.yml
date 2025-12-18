@@ -3,19 +3,19 @@ server:
 
 spring:
   application:
-    name: catalog-service
+    name: product-service
   datasource:
-    url: jdbc:h2:mem:catalogdb
-    driverClassName: org.h2.Driver
-    username: sa
+    url: jdbc:postgresql://postgres:5432/ecommercedb
+    username: user
     password: password
+    driverClassName: org.postgresql.Driver
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: update
-  h2:
-    console:
-      enabled: true
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
 
 eureka:
   client:
