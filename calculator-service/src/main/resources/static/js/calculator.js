@@ -111,8 +111,10 @@ function deleteLast() {
 document.addEventListener('keydown', function(event) {
     const key = event.key;
     
-    if (key >= '0' && key <= '9' || key === '.') {
+    if (key >= '0' && key <= '9') {
         appendNumber(key);
+    } else if (key === '.') {
+        appendDecimal();
     } else if (key === '+' || key === '-') {
         appendOperator(key);
     } else if (key === '*') {
